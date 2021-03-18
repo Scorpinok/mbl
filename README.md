@@ -7,7 +7,7 @@ https://www.kaggle.com/c/sberbank-russian-housing-market/data
 + Course_work.ipynb
 
 #### Стек: 
-+ requirements.txt
++ my_flask_app/requirements.txt
 
 ## Порядок действий:
 + Для запуска приложения нужно установить **docker** и **git**
