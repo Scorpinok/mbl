@@ -21,7 +21,7 @@ https://www.kaggle.com/c/sberbank-russian-housing-market/data
 > docker build -t my_flask_app:latest my_flask_app/
 
 + Запускаем контейнер:
-> docker run -d -p 5000:5000 -v "<путь к директории проекта (там же где лежит 'test.csv')>:/app" my_flask_app:lates
+> docker run -d -p 5000:5000 -v "<путь к директории проекта (там же где лежит 'test.csv')>:/app" my_flask_app:latest
 > 
 > может выглядеть так:
 > 
@@ -30,5 +30,6 @@ https://www.kaggle.com/c/sberbank-russian-housing-market/data
 + В браузере переходим на **localhost:5000**
 
 Приложение требует загрузки файла **"test.csv"**
+
 По результатам сохраняется файл **"_predictions.csv"**,
 который будет находится в рабочей директории проекта
