@@ -1,30 +1,34 @@
 # mbl
 
-**Python-Flask-Docker**
+#**Python-Flask-Docker**
 
-Данные Сбербанка по недвижимости: https://www.kaggle.com/c/sberbank-russian-housing-market/data
+##Данные Сбербанка по недвижимости:
+https://www.kaggle.com/c/sberbank-russian-housing-market/data
 
-Модель: CatBoostRegressor
+##Модель:
+CatBoostRegressor
 
-Стек: requirements.txt
+##Стек:
+requirements.txt
 
-Для запуска нужно установить docker и git
+Для запуска нужно установить **docker** и **git**
 
 По средствам командной строки 
 клонируем репозиторий и создаем образ:
 
-git clone https://github.com/Scorpinok/mbl.git
+<git clone https://github.com/Scorpinok/mbl.git>
 
-cd .\mbl\
+<cd .\mbl\>
 
-docker build -t my_flask_app:latest my_flask_app/
+<docker build -t my_flask_app:latest my_flask_app/>
 
-Запускаем контейнер
-docker run -d -p 5000:5000 -v "<путь к директории проекта (там же где лежит 'test.csv')>:/app" my_flask_app:latest
+Запускаем контейнер:
 
-В браузере переходим на localhost:5000
+<docker run -d -p 5000:5000 -v "<путь к директории проекта (там же где лежит 'test.csv')>:/app" my_flask_app:latest>
 
-Приложение требует загрузки файла "test.csv"
+В браузере переходим на **localhost:5000**
 
-По результатам сохраняется файл "_predictions.csv",
+Приложение требует загрузки файла "**test.csv**"
+
+По результатам сохраняется файл **"_predictions.csv"**,
 который будет находится в рабочей директории проекта
