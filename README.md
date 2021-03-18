@@ -13,8 +13,7 @@ CatBoostRegressor
 
 По средствам командной строки 
 клонируем репозиторий и создаем образ:
-
-[ git clone https://github.com/Scorpinok/mbl.git ]
+ {git clone https://github.com/Scorpinok/mbl.git 
 [< cd .\mbl\ >]
 [ docker build -t my_flask_app:latest my_flask_app/ ]
 
