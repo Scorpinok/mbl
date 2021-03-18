@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style type="text/css">
+.tg  {border:none;border-collapse:collapse;border-color:#93a1a1;border-spacing:0;margin: auto;}
+.tg td{background-color:#fdf6e3;border-color:#93a1a1;border-style:solid;border-width:0px;color:#002b36;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 50px;word-break:normal;}
+.tg th{background-color:#657b83;border-color:#93a1a1;border-style:solid;border-width:0px;color:#fdf6e3;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-40xt{background-color:#eee8d5;font-family:"Lucida Console", Monaco, monospace !important;;font-size:14px;text-align:left;
+  vertical-align:top}
+.tg .tg-m726{font-family:"Lucida Console", Monaco, monospace !important;;font-size:14px;text-align:left;vertical-align:top}
+.tg .tg-cgj5{border-color:#000000;font-family:"Lucida Console", Monaco, monospace !important;;font-size:14px;text-align:right;
+  vertical-align:middle}
+.tg .tg-8aoe{border-color:#000000;font-family:"Lucida Console", Monaco, monospace !important;;font-size:16px;text-align:center;
+  vertical-align:middle}
+.tg .tg-z7do{background-color:#eee8d5;border-color:#000000;font-family:"Lucida Console", Monaco, monospace !important;;
+  font-size:13px;text-align:left;vertical-align:middle}
+</style>
+
+<head>
+    <link rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>ML-app</title>
+</head>
+
+<body>
+<form action="/predict" method="POST">
+    <table class="tg">
+        <thead>
+        <tr>
+            <th class="tg-8aoe" colspan="2"><h2> Sber dataset </h2></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tg-m726">
+                <ul>
+                    <li> Выберите файл с тестовыми данными                        
+						<h6><p style="color:grey; margin-block-start: 0.2;font-size: 8px;font-weight: lighter;">Он должен лежать в основной папке проекта</p> 
+						<br>
+
+						    <p>
+								<input type="file" accept=".csv" name="filename" />
+							</p> 
+						
+                    </li>
+                </ul>
+            </td>
+            <td class="tg-40xt">
+                    <ul><b><u>Результат предсказания:</u></b></ul>
+                    <ul>сохранен в виде файла<br>
+                        <b>
+                            <br>
+                            {% if prediction %}
+                            <h2 class="text-warning" style="color:red; padding-left: 10px;">{{prediction}}</h2>
+                            {% endif %}
+                        </b>
+                    </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-cgj5">
+                <button class='btn btn-success'>Предсказать</button>
+            </td>
+            <td class="tg-z7do"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,6 @@
+category_encoders==2.2.2
+Flask==1.1.2
+pandas==1.1.4
+catboost==0.24.4
+dill==0.3.3
+scikit_learn==0.24.1
