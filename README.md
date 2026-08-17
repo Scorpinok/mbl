@@ -1,35 +1,46 @@
-# Python-Flask-Docker
+# Real Estate Price Prediction — ML + Flask + Docker
 
-## Данные Сбербанка по недвижимости:
-https://www.kaggle.com/c/sberbank-russian-housing-market/data
+![Model](https://img.shields.io/badge/Model-CatBoost-yellow?style=for-the-badge)
+![Framework](https://img.shields.io/badge/Framework-scikit--learn-orange?style=for-the-badge)
+![Deploy](https://img.shields.io/badge/Deploy-Flask%20%2B%20Docker-blue?style=for-the-badge)
 
-#### Реализация модели:
-+ Course_work.ipynb
+**Предсказание цены жилья на данных Sberbank Russian Housing Market (Kaggle): полный цикл от сырых данных до контейнеризованного сервиса.**
 
-#### Стек: 
-+ my_flask_app/requirements.txt
+---
 
-## Порядок действий:
-+ Для запуска приложения нужно установить **docker** и **git**
+## Суть проекта
 
-+ По средствам командной строки клонируем репозиторий и создаем образ:
+Датасет содержит 30 471 объект недвижимости и 292 "сырых", зашумлённых признака (числовые и категориальные, с заметной долей пропусков и выбросов). В проекте реализован полный ML-пайплайн — от очистки данных до обученной модели, обёрнутой во Flask-приложение и Docker-контейнер.
 
-> git clone https://github.com/Scorpinok/mbl.git
->  
-> cd .\mbl\ 
-> 
-> docker build -t my_flask_app:latest my_flask_app/
+## Технологический стек
 
-+ Запускаем контейнер:
-> docker run -d -p 5000:5000 -v "<путь к директории проекта (там же где лежит 'test.csv')>:/app" my_flask_app:latest
-> 
-> может выглядеть так:
-> 
-> docker run -d -p 5000:5000 -v "C:/folder1/mbl/:/app" my_flask_app:latest
+- **Модель:** CatBoostRegressor
+- **Пайплайн:** scikit-learn (`Pipeline`, `ColumnTransformer`)
+- **Деплой:** Flask, Docker
 
-+ В браузере переходим на **localhost:5000**
+## Основные этапы работы
 
-Приложение требует загрузки файла **"test.csv"**
+1. **Собственные трансформеры данных:** написаны кастомные классы `empty_drop` (удаление колонок с >20% пропусков) и `outlier_replace` (обработка выбросов) на базе `BaseEstimator`/`TransformerMixin`.
+2. **Кодирование и снижение размерности:** категориальные признаки — `CatBoostEncoder`; численные — `StandardScaler` + `PCA` (сохранение 98% дисперсии).
+3. **Подбор гиперпараметров:** `GridSearchCV` с 10-фолд кросс-валидацией по глубине дерева, learning rate и l2-регуляризации CatBoost.
+4. **Деплой:** обученный пайплайн сериализован и обёрнут в Flask-приложение, упакованное в Docker-образ.
 
-По результатам сохраняется файл **"_predictions.csv"**,
-который будет находится в рабочей директории проекта
+## Результаты
+
+- **R² на тестовой выборке: 0.652**
+- **RMSLE (среднеквадратичная логарифмическая ошибка): 0.233**
+
+## Как запустить
+
+```bash
+git clone https://github.com/Scorpinok/mbl.git
+cd mbl
+docker build -t my_flask_app:latest my_flask_app/
+docker run -d -p 5000:5000 -v "<путь к директории с test.csv>:/app" my_flask_app:latest
+```
+
+Открыть **localhost:5000**, загрузить `test.csv` → получить `_predictions.csv` с предсказаниями.
+
+---
+
+*Project by Scorpinok*
