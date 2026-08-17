@@ -43,4 +43,4 @@ docker run -d -p 5000:5000 -v "<путь к директории с test.csv>:/a
 
 ---
 
-*Project by Scorpinok*
+*Итоговый проект курса GeekBrains «Машинное обучение»*
