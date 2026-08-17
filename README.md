@@ -36,7 +36,7 @@
 git clone https://github.com/Scorpinok/mbl.git
 cd mbl
 docker build -t my_flask_app:latest my_flask_app/
-docker run -d -p 5000:5000 -v "<путь к директории с test.csv>:/app" my_flask_app:latest
+docker run -d -p 5000:5000 -v "<путь к директории с test.csv>:/app/data" my_flask_app:latest
 ```
 
 Открыть **localhost:5000**, загрузить `test.csv` → получить `_predictions.csv` с предсказаниями.
