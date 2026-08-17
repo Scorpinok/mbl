@@ -3,6 +3,7 @@
 ![Model](https://img.shields.io/badge/Model-CatBoost-yellow?style=for-the-badge)
 ![Framework](https://img.shields.io/badge/Framework-scikit--learn-orange?style=for-the-badge)
 ![Deploy](https://img.shields.io/badge/Deploy-Flask%20%2B%20Docker-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-GPL--3.0-green?style=for-the-badge)
 
 **Предсказание цены жилья на данных Sberbank Russian Housing Market (Kaggle): полный цикл от сырых данных до контейнеризованного сервиса.**
 
